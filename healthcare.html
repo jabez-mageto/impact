@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-attachment: fixed;
+            background-image: url('imapact data group/images/healthcare.jpg');
+        }
+
+        /* Apply black color to all h1 elements */
+        h1 {
+            color: black;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f4f4f4;
+            padding: 10px 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 2;
+            margin-top: 2px;
+            padding-top: 80px;
+        }
+
+        .menu-icon {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-icon div {
+            width: 35px;
+            height: 5px;
+            background-color: black;
+            margin: 6px 0;
+        }
+
+        .idg-icon {
+            font-size: 20px;
+            font-weight: bold;
+            color: black;
+            display: flex;
+            align-items: center;
+            margin-left: 100px;
+            margin-right: 100px;
+            padding-right: 150px;
+            text-decoration: none;
+        }
+        .idg-icon a{
+            text-decoration: none;
+            color: inherit;
+        }
+
+        nav {
+            flex: 1;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            margin-right: 500px;
+            margin-left: 0;
+        }
+
+        nav ul li {
+            position: relative;
+            margin-right: 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            padding: 10px 15px;
+            transition: background-color 0.3s ease;
+            display: block;
+        }
+
+        nav ul li a:hover {
+            background-color: #ddd;
+            border-radius: 5px;
+        }
+
+        /* Dropdown Menu */
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #ebebeb;
+            padding: 10px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            z-index: 999; /* Ensure dropdown is above other content */
+            min-width: 200px; /* Set a minimum width for dropdown */
+        }
+
+        nav ul li:hover ul {
+            display: block; /* Show the dropdown on hover */
+            border-radius: 10px;
+        }
+
+        nav ul li ul li {
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        nav ul li ul li a {
+            padding: 10px 20px;
+            color: black;
+            background-color: whitesmoke;
+            border-radius: 2px;
+            transition: background-color 0.3s ease;
+            white-space: nowrap; /* Prevent text from wrapping */
+            border-top: 2px solid #485F6D;
+        }
+
+        nav ul li ul li a:hover {
+            background-color: #ddd;
+        }
+
+        /* Main Section */
+        .main-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 50px 20px;
+            flex-wrap: wrap;
+        }
+
+        .image-content-wrapper {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-direction: column;
+        }
+
+        .side-image {
+            flex: 1;
+            max-width: 100%;
+            margin: 20px;
+        }
+
+        .side-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .content {
+            flex: 2;
+            max-width: 800px;
+            margin: 0 20px;
+            text-align: center;
+        }
+
+        /* Styling for healthcare section */
+        .healthcare {
+            color: darkblue;
+            font-family: Garamond, serif;
+            font-size: 20px;
+            line-height: 1.6;
+        }
+
+        .healthcare h1 {
+            margin-bottom: 20px;
+        }
+
+        .healthcare img {
+            max-width: 100%;
+            height: auto;
+        }
+        .healthcare p {
+            color: black;
+        }
+        .healthcare ol p {
+            color: #4c489e;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #485F6D;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 10px 0;
+            font-size: 14px;
+        }
+
+        footer nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        footer nav ul li {
+            margin: 0 10px;
+        }
+
+        footer nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        footer nav ul li a:hover {
+            color: #ddd;
+        }
+
+        .social-media {
+            margin-top: 10px;
+        }
+
+        .social-media a {
+            margin: 0 10px;
+            display: inline-block;
+        }
+
+        .social-media img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .social-media img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Flip Card Styles */
+        .flip-card {
+            background-color: transparent;
+            width: 300px;
+            height: 300px;
+            perspective: 1000px;
+            margin: 10px;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 10px;
+        }
+
+        .flip-card-front {
+            background-color: #bbb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .flip-card-back {
+            background-color: #2980b9;
+            color: white;
+            transform: rotateY(180deg);
+            padding: 20px;
+            width: 600px;
+            padding-right: 90px;
+            margin-right: 90px;
+        }
+
+        /* Grid Container Styles */
+        .grid-container {
+            display: contents;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            background-color: rgb(179, 175, 175);
+            
+        }
+
+        .grid-item {
+            background-color: #f4f4f4;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .grid-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .health-image{
+            height: 20px;
+            width: 1200px;
+        }
+    </style>
+</head>
+<body>
+    <header>  
+        <div class="menu-icon">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <span class="idg-icon"><a href="index.html">IDGs</a></span>
+        <nav>
+            <ul>
+                <li><a href="industries.html">Industries</a>
+                    <ul>
+                        <li><a href="healthcare.html">Health Care</a></li>
+                        <li><a href="finance.html">Finance</a></li>
+                        <li><a href="energy.html">Energy</a></li>
+                        <li><a href="government.html">Government</a></li>
+                    </ul>
+                </li>
+                <li><a href="capabilities.html">Capabilities</a>
+                    <ul>
+                        <li><a href="cloud.html">Cloud Services</a></li>
+                        <li><a href="ai.html">AI and Machine Learning</a></li>
+                        <li><a href="analytics.html">Big Data and BI analytics</a></li>
+                        <li><a href="enterprise.html">Enterprise Resource Planning</a></li>
+                        <li><a href="it.html">IT Project Management</a></li>
+               
+                    </ul>
+                </li>
+                <li><a href="insights.html">Insights</a>
+                    <ul>
+                        
+                        <li><a href="case.html">Case Study</a></li>
+                        <li><a href="news.html">News</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html">About</a>
+                    <ul>
+                        <li><a href="people.html">People and Culture</a></li>
+                        <li><a href="commitment.html">Commitment</a></li>
+                        <li><a href="certifications.html">Certifications</a></li>
+                        <li><a href="contracts.html">Contracts</a></li>
+                    </ul>
+                </li>
+         
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html" class="login-link">Employee Log In</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="main-section">
+        <div class="image-content-wrapper">
+            <div class="side-image">
+                
+            </div>
+            <div class="content healthcare">
+                <h1>Health Care</h1>
+                <p>Our Health Care Solutions are designed to improve patient outcomes and streamline operations. We provide cutting-edge technology and services that address the most pressing challenges in the healthcare sector.</p>
+                <div class="grid-container">
+                   
+                    <div class="grid-item">
+                
+                        <div class="flip-card">
+                         
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <p> Enhanced Patient Care and Outcomes</p>
+                                </div>
+                                <div class="flip-card-back">
+                                    <ul>
+                                        <li><strong>Personalized Medicine:</strong>Big data enables the analysis of large datasets, including genetic information, medical history, and lifestyle factors, to tailor treatments to individual patients. This approach, known as personalized medicine, can lead to more effective treatments with fewer side effects.</li>
+                                        </ul>
+                                </div>
+                            </div>
+                          
+                        </div>
+                    </div>
+                    <div class="grid-item">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <p>Card Front</p>
+                                </div>
+                                <div class="flip-card-back">
+                                    <p>Card Back</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-item">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <p>Card Front</p>
+                                </div>
+                                <div class="flip-card-back">
+                                    <p>Card Back</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-item">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <p>Card Front</p>
+                                </div>
+                                <div class="flip-card-back">
+                                    <p>Card Back</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-item">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <p>Card Front</p>
+                                </div>
+                                <div class="flip-card-back">
+                                    <p>Card Back</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-item">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <p>Card Front</p>
+                                </div>
+                                <div class="flip-card-back">
+                                    <p>Card Back</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add more flip cards here -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="social-media">
+          
+            <a href="#"><img src="imapact data group/images/Twitter.jpeg" alt="Twitter"></a>
+            <a href="#"><img src="imapact data group/images/Instagram.jpeg" alt="Instagram"></a>
+            <a href="#"><img src="imapact data group/images/linkedIn.jpeg" alt="LinkedIn"></a>
+        </div>
+        <p>&copy; 2021 IDGs. All rights reserved.</p>
+        <p>Privacy Policy | Terms of Service</p>
+        <p>Email: info@idgs.com | Phone: 123-456-7890</p>
+        <p>Address: 123 Main St, City, State, Zip</p>
+        <p>Designed by IDGs</p>
+        <p>Website by IDGs</p>
+        <p>Made with</p>
+    </footer>
+</body>
+</html>

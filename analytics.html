@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Big Data and BI Analytics</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background-color: #3f3f3f;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Apply black color to all h1 elements */
+        h1 {
+            color: black;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f4f4f4;
+            padding: 10px 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+            margin-top: 2px;
+            padding-top: 80px;
+            background-image: url('imapact data group/images/cloud.jpg')
+            font-size 50px;
+        }
+
+        .menu-icon {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-icon div {
+            width: 35px;
+            height: 5px;
+            background-color: black;
+            margin: 6px 0;
+        }
+
+        .idg-icon {
+            font-size: 20px;
+            font-weight: bold;
+            color: black;
+            display: flex;
+            align-items: center;
+            margin-left: 100px;
+            margin-right: 100px;
+            padding-right: 150px;
+            text-decoration: none;
+        }
+        .idg-icon a{
+            text-decoration: none;
+            color: inherit;
+        }
+
+        nav {
+            flex: 1;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            margin-right: 500px;
+            margin-left: 0;
+        }
+
+        nav ul li {
+            position: relative;
+            margin-right: 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            padding: 10px 15px;
+            transition: background-color 0.3s ease;
+            display: block;
+            font-size: 20px;
+        }
+
+        nav ul li a:hover {
+            background-color: #ddd;
+            border-radius: 5px;
+        }
+
+        /* Dropdown Menu */
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #ebebeb;
+            padding: 10px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            z-index: 999; /* Ensure dropdown is above other content */
+            min-width: 200px; /* Set a minimum width for dropdown */
+        }
+
+        nav ul li:hover ul {
+            display: block; /* Show the dropdown on hover */
+            border-radius: 10px;
+        }
+
+        nav ul li ul li {
+            margin: 0;
+            padding: 0;
+            position: relative;
+    
+        }
+
+        nav ul li ul li a {
+            padding: 10px 20px;
+            color: black;
+            background-color: whitesmoke;
+            border-radius: 2px;
+            transition: background-color 0.3s ease;
+            white-space: nowrap; /* Prevent text from wrapping */
+            border-top: 2px solid #485F6D;
+            font-size: 20px;
+        }
+
+        nav ul li ul li a:hover {
+            background-color: #ddd;
+        }
+
+        main {
+            padding: 80px 20px 20px; /* Padding to prevent content from being hidden behind the header */
+            max-width: 800px;
+            margin: auto;
+            background-color: #fff;
+            border-radius: 8px;
+            text-align: end;
+            box-sizing: border-box;
+            
+        }
+
+        h1 {
+            color: #007BFF;
+            text-align: center;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .image-gallery {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .image-gallery img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            background-color: #485F6D;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 10px 0;
+            font-size: 14px;
+        }
+
+        footer nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        footer nav ul li {
+            margin: 0 10px;
+        }
+
+        footer nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        footer nav ul li a:hover {
+            color: #ddd;
+        }
+
+        .social-media {
+            margin-top: 10px;
+        }
+
+        .social-media a {
+            margin: 0 10px;
+            display: inline-block;
+        }
+
+        .social-media img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .social-media img:hover {
+            transform: scale(1.1);
+        }
+        .section-cloud{
+            text-align: center;
+            justify-content: end;
+            background-color: rgb(32, 31, 31);
+            color: white;
+             padding: 100px;
+             background-image: url('imapact data group/images/cloud1.jpg');
+        }
+       
+        .cloud-1{
+            float: left;
+            width: 45%;
+            height: 100px;
+            position: absolute;
+            display: inline-block;
+       
+        }
+        .cloud-2{
+            float: right;
+            width: 45%;
+            height: 100px;
+            position: absolute;
+
+        }
+        .section-flexibility :hover{
+          
+           
+        }
+        .scalability {
+            width: 50%; /* Adjust width as needed */
+            height: 250px;
+            object-fit: cover;
+            border-radius: 1px;
+            margin: 0 0 20px 20px; /* Adjust margins for spacing */
+            float: right; /* Float the image to the right */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow for depth */
+        }
+
+        .section-cloud p {
+            overflow: auto; /* Clear the float inside the section */
+        
+        } 
+        .section-flexibility {
+    display: flex;
+    align-items: center;
+    padding: 150px;
+    color: black;
+    text-align: left;
+    background-color: rgb(243, 243, 243);
+}
+
+
+
+.section-flexibility p {
+    font-size: 20px; /* Adjust font size as needed */
+    margin-bottom: 20px; /* Space between text and image */
+}
+
+.section-flexibility p:last-child {
+    margin-bottom: 0; /* Remove bottom margin if last paragraph */
+}
+
+
+        .cloud {
+            width: 40%; /* Adjust width as needed */
+            height: 250px;
+            object-fit: cover;
+            border-radius: 1px;
+            margin: 0 0 20px 20px; /* Adjust margins for spacing */
+            float: left; /* Float the image to the right */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow for depth */
+            background-color: #ffffff;
+            flex: auto;   
+        }
+        .section-cloud h1{
+            font-size: 35px;
+            color: white;
+        }
+        .section-cloud p{
+            font-size: 20px;
+        }
+        
+        
+        
+        .section-flexibility{
+            background-color: #3f3f3f;
+            color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            
+           
+            
+        }
+        .section-flexibility .img{
+            float: right;
+        }
+        .section-cost{
+            background-color: #3f3f3f;
+            color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            
+           
+            
+        }
+        .section-cost .img{
+            float: right;
+        }
+        .section-data{
+            background-color: #3f3f3f;
+            color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+        }
+        .section-data .img{
+            float: left;
+        }
+        .section-capabilities{
+            background-color: #3f3f3f;
+            color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+        }
+        .section-capabilities .img{
+            float: left;
+        }
+        .section-collaboration{
+            background-color: #3f3f3f;
+            color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+        }
+        .section-collaboration .img{
+            float: left;
+        }
+        .section-disaster{
+            background-color: #3f3f3f;
+            color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+        }
+        .section-disaster .img{
+            float: left;
+        }
+        .section-summary p{
+            color: white;
+            font-size: 25px;
+            font-family: garamond, sans-serif;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .image-gallery{
+            margin-bottom: 20px;
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            justify-content: center;
+            padding: 10px;
+            background-color:rgb(46, 46, 46);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for depth */
+            overflow: hidden; /* Hide overflowing text */
+            overflow-x: auto; /* Add horizontal scrollbar if necessary */
+            flex-wrap: wrap; /* Wrap images in a new line if the viewport is too narrow */
+            align-items: center; /* Center the images vertically */
+            justify-content: space-evenly; /* Space the images evenly */
+            transition: transform 0.3s ease-in-out; /* Smooth transition */
+
+
+
+        }
+        .section-flexibility :hover,
+        .section-capabilities :hover,
+        .section-collaboration :hover,
+        .section-cost :hover,
+        .section-data :hover,
+        .section-summary :hover,
+        .image-gallery :hover,
+        .section-cloud p:hover
+        .section-disaster :hover{
+            transform: scale(1.05); /* Slightly enlarge the section */
+            background-color: #555; /* Change the background color on hover */
+            filter: brightness(1.0); /* Increase the brightness of the background image */
+            transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out, filter 0.3s ease-in-out; /* Smooth transition */
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+    <header>
+       
+        <div class="menu-icon">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <span class="idg-icon"><a href="index.html">IDGs</a></span>
+        <nav>
+            <ul>
+                <li><a href="industries.html">Industries</a>
+                    <ul>
+                        <li><a href="healthcare.html">Health Care</a></li>
+                        <li><a href="finance.html">Finance</a></li>
+                        <li><a href="energy.html">Energy</a></li>
+                        <li><a href="government.html">Government</a></li>
+                    </ul>
+                </li>
+                <li><a href="capabilities.html">Capabilities</a>
+                    <ul>
+                        <li><a href="cloud.html">Cloud Services</a></li>
+                        <li><a href="ai.html">AI and Machine Learning</a></li>
+                        <li><a href="analytics.html">Big Data and BI analytics</a></li>
+                        <li><a href="enterprise.html">Enterprise Resource Planning</a></li>
+                        <li><a href="it.html">IT Project Management</a></li>
+                     
+                    </ul>
+                </li>
+                <li><a href="insights.html">Insights</a>
+                    <ul>
+                  
+                        <li><a href="case.html">Case Study</a></li>
+                        <li><a href="news.html">News</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html">About</a>
+                    <ul>
+                        <li><a href="people.html">People and Culture</a></li>
+                        <li><a href="commitment.html">Commitment</a></li>
+                        <li><a href="certifications.html">Certifications</a></li>
+                        <li><a href="contracts.html">Contracts</a></li>
+                    </ul>
+                </li>
+              
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html" class="login-link">Employee Log In</a></li>
+            </ul>
+             
+        </nav>
+    </header>
+    
+    <section>
+      
+        
+    </section>
+    <div class="section-cloud">
+        <h1></h1>
+        
+        <p>Business Intelligence (BI) in the context of big data refers to the technologies, tools, and practices<br>
+             used to collect, integrate, analyze, and present business information. The goal of BI is to help<br>
+              organizations make informed decisions by providing insights into their operations and market conditions.<br>
+               BI involves the use of data visualization, reporting, and dashboarding tools to transform raw data<br>
+                into meaningful insights. This allows businesses to identify trends, track performance, and make<br>
+                 strategic decisions based on accurate and up-to-date information. In the big data era, BI is<br>
+                  increasingly integrating advanced analytics, including predictive and prescriptive techniques,<br>
+                   to provide deeper insights and more actionable recommendations.
+           
+        </p>
+           
+  
+    </div>
+
+       
+   
+    <div class="image-gallery" background-color="black">
+       
+        <img class="scalability" src="C:\xampp\htdocs\impact data camp\imapact data group\images\bi.jpg" alt="Scalability">
+        <img class="scalability" src="C:\xampp\htdocs\impact data camp\imapact data group\images\b2.jpg" alt="Scalability">
+        <img class="scalability" src="C:\xampp\htdocs\impact data camp\imapact data group\images\bi1.jpg" alt="Scalability">
+    </marquee>
+    </div>
+    <div class="image-gallery">
+       
+        <img class="scalability" src="C:\xampp\htdocs\impact data camp\imapact data group\images\bi3.jpg" alt="Scalability">
+        <img class="scalability" src="C:\xampp\htdocs\impact data camp\imapact data group\images\bi4.jpg" alt="Scalability">
+        <img class="scalability" src="C:\xampp\htdocs\impact data camp\imapact data group\images\bi5.jpg" alt="Scalability">
+  
+        </div>
+   
+        <div class="section-cost">
+            <img class="cloud" src="C:\xampp\htdocs\impact data camp\imapact data group\images\cloud3.jpg" alt="Scalability">
+            <div>  <strong><h1>Enhanced Decision-Making through Advanced Analytics</h1></strong>
+           <ul>
+                <li>IDG leverages predictive analytics and machine learning algorithms to 
+                    transform raw data into actionable insights. By integrating these tools into existing BI systems, 
+                    IDG can forecast trends, predict customer behavior, and optimize operations.</li>
+               
+           </ul>
+            </div>
+            </div>
+            <div class="section-data">
+                <img class="scalability" src="C:\xampp\htdocs\impact data camp\imapact data group\images\cloud1.jpg" alt="Scalability">
+                <div>  <strong><h1>Improved Customer Experience</h1></strong>
+                <ul>
+                    <li>IDG offers good customer services furthurmore, IDG can analyze customer data to tailor services, anticipate needs, and provide real-time support, thereby enhancing the overall customer experience.</li>
+                    <br>
+                  
+                </ul>
+                </div>
+                </div>
+                <div class="section-capabilities">
+                    <img class="cloud" src="C:\xampp\htdocs\impact data camp\imapact data group\images\cloud4.jpg" alt="Scalability">
+                    <div>  <strong><h1>Scalability and Flexibility with Cloud-Based Analytics</h1> </strong>
+                  <ul>
+                    <li> Migration of BI and Big Data workloads to cloud platforms to take advantage of scalable resources.
+                         This has allowed IDG to handle large data volumes and complex queries without the limitations
+                          of on-premises infrastructure, ensuring agility and flexibility.</li>
+                    <br>
+
+                  </ul>
+                    </div>
+                    </div>
+                    <div class="section-collaboration">
+        <img class="scalability" src="C:\xampp\htdocs\impact data camp\imapact data group\images\cloud5.jpg" alt="Scalability">
+        <div>  <strong> <h1> Real-Time Data Processing</h1></strong>
+            <ul>
+                <li>IDG has implemented real-time data analytics to enable immediate decision-making. By incorporating streaming data analytics, IDG  monitors live data streams for instant insights, which is crucial for industries like finance, healthcare, and energy.</li>
+                <br>
+                
+            </ul>
+        </div>
+        </div>
+        <div class="section-disaster">
+        <img class="cloud" src="C:\xampp\htdocs\impact data camp\imapact data group\images\cloud5.jpg" alt="Scalability">
+        <div>  <strong><h1>Data Integration Across Silos</h1> </strong>
+            <ul>
+                <li>IDG focuses on integrating data from various sources, including structured and unstructured data, into a unified platform. This will provide a comprehensive view of operations and improve the accuracy of BI reports.</li>
+                <br>
+
+            </ul>
+        </div>
+        </div>
+        
+   
+
+
+        <div class="section-summary">
+            <p>
+                Big Data and Business Intelligence (BI) analytics have significantly impacted <br>
+                Impact Data Group (IDG) by transforming how the organization manages, analyzes,<br>
+                 and leverages data. The integration of these technologies has enabled IDG to <br>
+                 make more informed decisions, enhance customer experiences, and improve operational<br>
+                  efficiency. By adopting advanced analytics, IDG can forecast trends, personalize services,<br>
+                   and optimize costs through scalable, cloud-based solutions. The focus on real-time data<br>
+                    processing and data integration across silos has provided a comprehensive view of operations,<br>
+                     leading to more accurate insights and faster decision-making. Additionally, the implementation<br>
+                      of robust security measures and fostering a culture of collaboration and continuous learning <br>
+                      has positioned IDG as a forward-thinking organization that effectively uses data to drive<br>
+                       business growth and innovation.
+            </p>
+
+        </div>
+    
+        <footer>
+            <div class="social-media">
+              
+                <a href="#"><img src="imapact data group/images/Twitter.jpeg" alt="Twitter"></a>
+                <a href="#"><img src="imapact data group/images/Instagram.jpeg" alt="Instagram"></a>
+                <a href="#"><img src="imapact data group/images/linkedIn.jpeg" alt="LinkedIn"></a>
+            </div>
+            <p>&copy; 2021 IDGs. All rights reserved.</p>
+            <p>Privacy Policy | Terms of Service</p>
+            <p>Email: info@idgs.com | Phone: 123-456-7890</p>
+            <p>Address: 123 Main St, City, State, Zip</p>
+            <p>Designed by IDGs</p>
+            <p>Website by IDGs</p>
+            <p>Made with</p>
+        </footer>
+</body>
+</html>

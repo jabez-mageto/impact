@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Government</title>
+    <style>
+ /* General Styles */
+/* General Styles */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: white; /* Set text color to white for readability */
+}
+
+h1 {
+    color: black;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f4f4f4;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 2;
+    margin-top: 2px;
+    padding-top: 80px;
+}
+
+.menu-icon {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-icon div {
+    width: 35px;
+    height: 5px;
+    background-color: black;
+    margin: 6px 0;
+}
+
+.idg-icon {
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    display: flex;
+    align-items: center;
+    margin-left: 100px;
+    margin-right: 100px;
+    padding-right: 150px;
+    text-decoration: none;
+}
+
+.idg-icon a {
+    text-decoration: none;
+    color: inherit;
+}
+
+nav {
+    flex: 1;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    margin-right: 500px;
+    margin-left: 0;
+}
+
+nav ul li {
+    position: relative;
+    margin-right: 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease;
+    display: block;
+}
+
+nav ul li a:hover {
+    background-color: #ddd;
+    border-radius: 5px;
+}
+
+/* Dropdown Menu */
+nav ul li ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #ebebeb;
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 999; /* Ensure dropdown is above other content */
+    min-width: 200px; /* Set a minimum width for dropdown */
+}
+
+nav ul li:hover ul {
+    display: block; /* Show the dropdown on hover */
+    border-radius: 10px;
+}
+
+nav ul li ul li {
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+nav ul li ul li a {
+    padding: 10px 20px;
+    color: black;
+    background-color: whitesmoke;
+    border-radius: 2px;
+    transition: background-color 0.3s ease;
+    white-space: nowrap; /* Prevent text from wrapping */
+    border-top: 2px solid #485F6D;
+}
+
+nav ul li ul li a:hover {
+    background-color: #ddd;
+}
+
+h1 {
+    font-size: 36px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Government Section Styles */
+.government-section {
+    padding: 20px;
+    background-color: black;
+    opacity: 0.9;
+}
+
+.government-section section {
+    background-color: black;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    color: white;
+    overflow: hidden; /* Clear floats within the section */
+}
+
+.government-section section h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.government-section section p,
+.government-section section ul {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.government-section section ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+.government-section section ul li {
+    margin-bottom: 10px;
+}
+
+.government-section img {
+    border-radius: 1px;
+    margin: 10px;
+    
+}
+.government-section img:hover {
+    transform: scale(1.05); /* Slightly enlarge the image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add shadow on hover */
+}
+
+.government-section .left-image img {
+    float: left;
+    width: 200px;
+    height: auto;
+    margin-right: 20px;
+    margin-right: 10px;
+    background-color: lightblue;
+}
+
+.government-section .right-image img {
+    float: right;
+    width: 200px;
+    height: auto;
+    margin-left: 20px;
+}
+
+/* Footer Styles */
+footer {
+            background-color: rgb(31, 31, 31);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 10px 0;
+            font-size: 14px;
+        }
+
+        footer nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        footer nav ul li {
+            margin: 0 10px;
+        }
+
+        footer nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        footer nav ul li a:hover {
+            color: #ddd;
+        }
+
+        .social-media {
+            margin-top: 10px;
+        }
+
+        .social-media a {
+            margin: 0 10px;
+            display: inline-block;
+        }
+
+        .social-media img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .social-media img:hover {
+            transform: scale(1.1);
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="menu-icon">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <span class="idg-icon"><a href="index.html">IDGs</a></span>
+        <nav>
+            <ul>
+                <li><a href="industries.html">Industries</a>
+                    <ul>
+                        <li><a href="healthcare.html">Health Care</a></li>
+                        <li><a href="finance.html">Finance</a></li>
+                        <li><a href="energy.html">Energy</a></li>
+                        <li><a href="government.html">Government</a></li>
+                    </ul>
+                </li>
+                <li><a href="capabilities.html">Capabilities</a>
+                    <ul>
+                        <li><a href="cloud.html">Cloud Services</a></li>
+                        <li><a href="ai.html">AI and Machine Learning</a></li>
+                        <li><a href="analytics.html">Big Data and BI analytics</a></li>
+                        <li><a href="enterprise.html">Enterprise Resource Planning</a></li>
+                        <li><a href="it.html">IT Project Management</a></li>
+                     
+                    </ul>
+                </li>
+                <li><a href="insights.html">Insights</a>
+                    <ul>
+                        
+                        <li><a href="case.html">Case Study</a></li>
+                        <li><a href="news.html">News</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html">About</a>
+                    <ul>
+                        <li><a href="people.html">People and Culture</a></li>
+                        <li><a href="commitment.html">Commitment</a></li>
+                        <li><a href="certifications.html">Certifications</a></li>
+                        <li><a href="contracts.html">Contracts</a></li>
+                    </ul>
+                </li>
+           
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html" class="login-link">Employee Log In</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="government-section">
+        <section class="right-image">
+            <img class="image-1" src="C:\xampp\htdocs\impact data camp\imapact data group\images\safety.jpg" alt="Public Safety">
+            <div class="section-content">
+                <h2>Public Safety and Crime Prevention</h2>
+                <p>Big data analytics is essential in enhancing public safety by predicting crime patterns and allocating resources efficiently.</p>
+                <ul>
+                    <li><strong>Crime Prediction:</strong> Analyze historical crime data to forecast future incidents.</li>
+                    <li><strong>Resource Allocation:</strong> Optimize the deployment of police and emergency services.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="left-image">
+            <img class="image-2" src="C:\xampp\htdocs\impact data camp\imapact data group\images\smartdevelopment.jpg" alt="Smart City Development">
+            <div class="section-content">
+                <h2>Smart City Development</h2>
+                <p>Big data analytics aids in the development of smart cities by optimizing urban planning and improving infrastructure management.</p>
+                <ul>
+                    <li><strong>Urban Planning:</strong> Use data to optimize traffic flow, public transportation, and zoning.</li>
+                    <li><strong>Infrastructure Management:</strong> Monitor and maintain city infrastructure using real-time data.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="right-image">
+            <img class="image-3" src="C:\xampp\htdocs\impact data camp\imapact data group\images\health.jpg" alt="Public Health Monitoring">
+            <div class="section-content">
+                <h2>Public Health Monitoring</h2>
+                <p>Governments use big data to monitor public health trends, manage outbreaks, and optimize healthcare services.</p>
+                <ul>
+                    <li><strong>Disease Surveillance:</strong> Track the spread of diseases and manage public health responses.</li>
+                    <li><strong>Healthcare Optimization:</strong> Analyze patient data to improve healthcare services and resource allocation.</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="social-media">
+          
+            <a href="#"><img src="imapact data group/images/Twitter.jpeg" alt="Twitter"></a>
+            <a href="#"><img src="imapact data group/images/Instagram.jpeg" alt="Instagram"></a>
+            <a href="#"><img src="imapact data group/images/linkedIn.jpeg" alt="LinkedIn"></a>
+        </div>
+        <p>&copy; 2021 IDGs. All rights reserved.</p>
+        <p>Privacy Policy | Terms of Service</p>
+        <p>Email: info@idgs.com | Phone: 123-456-7890</p>
+        <p>Address: 123 Main St, City, State, Zip</p>
+        <p>Designed by IDGs</p>
+        <p>Website by IDGs</p>
+        <p>Made with</p>
+    </footer>
+</body>
+
+</html>
